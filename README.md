@@ -18,7 +18,7 @@ When you are a cop, press [F6] in-game to bring the menu
 - Cloakroom
 - Armory
 - Vehicle spawner
-- Vehicle deleter : You can delete your spawned vehicles in the garage opened in screenshot #2
+- Vehicle deleter : You can delete your spawned vehicles in the garage opened in screenshot #3
 - Citizen interactions
 - Vehicle interactions
 
