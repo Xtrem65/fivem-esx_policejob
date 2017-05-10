@@ -7,6 +7,8 @@ https://github.com/indilo53/fivem-es_extended
 
 https://github.com/indilo53/fivem-esx_phone
 
+You need to load esx_phone before esx_policejob in your citmp-server.yml
+
 You can set your job with the /setjob command
 
 example : /setjob [ID] cop [GRADE]
