@@ -14,6 +14,7 @@ You can set your job with the /setjob command
 example : /setjob [ID] cop [GRADE]
 
 When you are a cop, press [F6] in-game to bring the menu
+Press [F7] in-game to see your fines
 
 -- FEATURES --
 
