@@ -19,6 +19,8 @@ When you are a cop, press [F6] in-game to bring the menu
 - Armory
 - Vehicle spawner
 - Vehicle deleter : You can delete your spawned vehicles in the garage opened in screenshot #3
+- Fines
+- Helicopter spawn at the top of the police station (To fix: it can spawn an ambulance polmav instead of police, just walk back to the stairs to respawn another one)
 - Citizen interactions
 - Vehicle interactions
 
