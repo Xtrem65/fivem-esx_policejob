@@ -81,7 +81,13 @@ end)
 
 RegisterNetEvent('esx_phone:loaded')
 AddEventHandler('esx_phone:loaded', function(phoneNumber, contacts)
+	
 	TriggerEvent('esx_phone:addContact', 'Police', 'police', 'special', false)
+
+	TriggerEvent('esx_phone:registerMessageCallback', 'copy_that', function(sender, phoneNumber, type, message, position)
+		TriggerServerEvent('esx_phone:send', 'player', phoneNumber, GetPlayerName(PlayerId()), 'Bien reçu')
+	end)
+
 end)
 
 AddEventHandler('esx_policejob:hasEnteredMarker', function(zone)

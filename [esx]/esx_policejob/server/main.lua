@@ -187,8 +187,15 @@ TriggerEvent('esx_phone:registerCallback', 'special', function(source, phoneNumb
 			TriggerEvent('esx:getPlayers', function(xPlayers)
 				for k, v in pairs(xPlayers) do
 					if v.job.name == 'cop' then
+						
 						RconPrint('Message => ' .. playerName .. ' ' .. message)
-						TriggerClientEvent('esx_phone:onMessage', v.player.source, xPlayer.phoneNumber, playerName, type, message, xPlayer.player.coords, {reply = 'Répondre', gps = 'GPS'})
+						
+						TriggerClientEvent('esx_phone:onMessage', v.player.source, xPlayer.phoneNumber, playerName, type, message, xPlayer.player.coords, {
+							reply     = 'Répondre',
+							gps       = 'GPS',
+							copy_that = 'Bien reçu'
+						})
+						
 					end
 				end
 			end)
