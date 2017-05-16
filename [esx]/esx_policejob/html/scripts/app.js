@@ -41,7 +41,7 @@
 		  items : [
 					{label: 'Matraque',             value: 'weapon_nightstick'},
 					{label: 'Pistolet de combat',   value: 'weapon_combatpistol'},
-					{label: 'Fusil d\'assaut',      value: 'weapon_assaultrifle'},
+					{label: 'SMG',                  value: 'weapon_assaultsmg'},
 					{label: 'Fusil à pompe',        value: 'weapon_pumpshotgun'},
 					{label: 'Taser',                value: 'weapon_stungun'},
 					{label: 'Lampe de poche',       value: 'weapon_flashlight'},
