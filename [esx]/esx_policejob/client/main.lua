@@ -139,6 +139,8 @@ AddEventHandler('esx_policejob:hasEnteredMarker', function(zone)
 
 			if not IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 10.0) then
 				SpawnedVehicles['Polmav1'] = CreateVehicle(vehicleModel, coords.x, coords.y, coords.z, 0.0, true, false)
+				SetVehicleModKit(SpawnedVehicles['Polmav1'], 0)
+				SetVehicleLivery(SpawnedVehicles['Polmav1'], 0)
 				SetVehicleHasBeenOwnedByPlayer(SpawnedVehicles['Polmav1'],  true)
 				SetEntityAsMissionEntity(SpawnedVehicles['Polmav1'],  true,  true)
 				local id = NetworkGetNetworkIdFromEntity(SpawnedVehicles['Polmav1'])
