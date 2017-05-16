@@ -120,7 +120,6 @@ Config.Weapons = {
 	{name = 'WEAPON_RUN_OVER_BY_CAR'},
 	{name = 'WEAPON_HELI_CRASH'},
 	{name = 'WEAPON_FIRE'},
-`
 	--DLC Weapons
 	
 	{name = 'WEAPON_SNSPISTOL'},
