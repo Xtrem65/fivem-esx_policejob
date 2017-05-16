@@ -120,6 +120,7 @@ Config.Weapons = {
 	{name = 'WEAPON_RUN_OVER_BY_CAR'},
 	{name = 'WEAPON_HELI_CRASH'},
 	{name = 'WEAPON_FIRE'},
+	--DLC Weapons
 	{name = 'WEAPON_SNSPISTOL'},
 	{name = 'WEAPON_BOTTLE'},
 	{name = 'WEAPON_GUSENBERG'},
@@ -156,5 +157,5 @@ Config.Weapons = {
 	{name = 'WEAPON_MINISMG'},
 	{name = 'WEAPON_PIPEBOMB'},
 	{name = 'WEAPON_POOLCUE'},
-	{name = 'WEAPON_WRENCH'},
+	{name = 'WEAPON_WRENCH'}
 }
