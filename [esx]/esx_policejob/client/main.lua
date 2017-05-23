@@ -74,6 +74,137 @@ function GetClosestPlayerInAreaNotInAnyVehicle(positions, radius)
 
 end
 
+function SetVehicleProperties(vehicle, props)
+
+	SetVehicleModKit(vehicle,  0)
+
+	if props.plate ~= nil then
+		SetVehicleNumberPlateText(vehicle,  props.plate)
+	end
+
+	if props.plateIndex ~= nil then
+		SetVehicleNumberPlateTextIndex(vehicle,  props.plateIndex)
+	end
+
+	if props.color1 ~= nil and props.color2 ~= nil then
+		SetVehicleColours(vehicle, props.color1, props.color2)
+	end
+
+	if props.pearlescentColor ~= nil and props.wheelColor ~= nil then
+		SetVehicleExtraColours(vehicle,  props.pearlescentColor,  props.wheelColor)
+	end
+
+	if props.wheels ~= nil then
+		SetVehicleWheelType(vehicle,  props.wheels)
+	end
+
+	if props.windowTint ~= nil then
+		SetVehicleWindowTint(vehicle,  props.windowTint)
+	end
+
+	if props.neonColor ~= nil then
+		SetVehicleNeonLightsColour(vehicle,  props.neonColor[1], props.neonColor[2], props.neonColor[3])
+	end
+
+	if props.modSpoilers ~= nil then
+		SetVehicleMod(vehicle, 0, props.modSpoilers, false)
+	end
+
+	if props.modFrontBumper ~= nil then
+		SetVehicleMod(vehicle, 1, props.modFrontBumper, false)
+	end
+
+	if props.modRearBumper ~= nil then
+		SetVehicleMod(vehicle, 2, props.modRearBumper, false)
+	end
+
+	if props.modSideSkirt ~= nil then
+		SetVehicleMod(vehicle, 3, props.modSideSkirt, false)
+	end
+
+	if props.modExhaust ~= nil then
+		SetVehicleMod(vehicle, 4, props.modExhaust, false)
+	end
+
+	if props.modFrame ~= nil then
+		SetVehicleMod(vehicle, 5, props.modFrame, false)
+	end
+
+	if props.modGrille ~= nil then
+		SetVehicleMod(vehicle, 6, props.modGrille, false)
+	end
+
+	if props.modHood ~= nil then
+		SetVehicleMod(vehicle, 7, props.modHood, false)
+	end
+
+	if props.modFender ~= nil then
+		SetVehicleMod(vehicle, 8, props.modFender, false)
+	end
+
+	if props.modRightFender ~= nil then
+		SetVehicleMod(vehicle, 9, props.modRightFender, false)
+	end
+
+	if props.modRoof ~= nil then
+		SetVehicleMod(vehicle, 10, props.modRoof, false)
+	end
+
+	if props.modEngine ~= nil then
+		SetVehicleMod(vehicle, 11, props.modEngine, false)
+	end
+
+	if props.modBrakes ~= nil then
+		SetVehicleMod(vehicle, 12, props.modBrakes, false)
+	end
+
+	if props.modTransmission ~= nil then
+		SetVehicleMod(vehicle, 13, props.modTransmission, false)
+	end
+
+	if props.modHorns ~= nil then
+		SetVehicleMod(vehicle, 14, props.modHorns, false)
+	end
+
+	if props.modSuspension ~= nil then
+		SetVehicleMod(vehicle, 15, props.modSuspension, false)
+	end
+
+	if props.modArmor ~= nil then
+		SetVehicleMod(vehicle, 16, props.modArmor, false)
+	end
+
+	if props.modTurbo ~= nil then
+		ToggleVehicleMod(vehicle,  18, props.modTurbo)
+	end
+
+	if props.modXenon ~= nil then
+		ToggleVehicleMod(vehicle,  22, props.modXenon)
+	end
+
+	if props.modFrontWheels ~= nil then
+		SetVehicleMod(vehicle, 23, props.modFrontWheels, false)
+	end
+
+	if props.modBackWheels ~= nil then
+		SetVehicleMod(vehicle, 24, props.modBackWheels, false)
+	end
+
+end
+
+function SetVehicleMaxMods(vehicle)
+
+	local props = {
+		modEngine       = 2,
+		modBrakes       = 2,
+		modTransmission = 2,
+		modSuspension   = 3,
+		modTurbo        = true,
+	}
+
+	SetVehicleProperties(vehicle, props)
+end
+
 AddEventHandler('playerSpawned', function(spawn)
 	PID = GetPlayerServerId(PlayerId())
 	TriggerServerEvent('esx_policejob:requestPlayerData', 'playerSpawned')
@@ -531,6 +662,7 @@ RegisterNUICallback('select', function(data, cb)
 					local id = NetworkGetNetworkIdFromEntity(vehicle)
 					SetNetworkIdCanMigrate(id, true)
 					TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
+					SetVehicleMaxMods(vehicle)
 				end
 
 			end)
