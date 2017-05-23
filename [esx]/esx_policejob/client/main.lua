@@ -659,6 +659,7 @@ RegisterNUICallback('select', function(data, cb)
 	        end
 
 	        if DoesEntityExist(vehicle) then
+	        	SetVehicleDoorsLocked(vehicle, 1)
             SetVehicleDoorsLockedForAllPlayers(vehicle, false)
             TriggerEvent('esx:showNotification', 'Véhicule déverouillé')
 
