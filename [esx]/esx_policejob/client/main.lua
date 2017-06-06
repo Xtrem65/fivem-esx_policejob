@@ -975,3 +975,50 @@ Citizen.CreateThread(function()
 
 	end
 end)
+
+local maxSpeed= 50.0
+local minSpeed= 10.0
+local info ="nope"
+
+
+function drawTxt(x,y ,width,height,scale, text, r,g,b,a)
+    SetTextFont(0)
+    SetTextProportional(0)
+    SetTextScale(scale, scale)
+    SetTextColour(r, g, b, a)
+    SetTextDropShadow(0, 0, 0, 0,255)
+    SetTextEdge(1, 0, 0, 0, 255)
+    SetTextDropShadow()
+    SetTextOutline()
+    SetTextEntry("STRING")
+    AddTextComponentString(text)
+    DrawText(x - width/2, y - height/2 + 0.005)
+end
+
+Citizen.CreateThread(function()
+	while true do
+		Wait(0)
+		if(PlayerData.job ~= nil and PlayerData.job.name == 'cop') then
+            if IsControlPressed(1, 217)then -- caps-lock
+                local entity = Citizen.InvokeNative(0x2975C866E6713290, PlayerId(), Citizen.PointerValueInt(), Citizen.ResultAsInteger(entity)) --PLAYER::GET_ENTITY_PLAYER_IS_FREE_AIMING_AT
+                --Entity = Player in the vehicle => We need the car
+                local vehicle = GetVehiclePedIsIn( entity, false )
+                if vehicle ~=nil then
+                    local plate=GetVehicleNumberPlateText(vehicle)
+                    local herSpeedKm= GetEntitySpeed(vehicle)*3.6
+                    local herSpeedMph= GetEntitySpeed(vehicle)*2.236936
+
+                    if herSpeedKm > minSpeed then
+                        if herSpeedKm < maxSpeed then
+                          info = string.format("~b~Plate:~w~ %s ~n~~y~Km/h: ~g~%s~n~~y~Mph: ~g~%s",plate,math.ceil(herSpeedKm),math.ceil(herSpeedMph) )
+                         else
+                          info = string.format("~b~Plate:~w~ %s ~n~~y~Km/h: ~r~%s~n~~y~Mph: ~r~%s",plate,math.ceil(herSpeedKm),math.ceil(herSpeedMph) )
+                        end
+                        DrawRect(0.5,0.0,0.12,0.18,0,10,28,210)
+                        drawTxt(0.55,0.1,0.185,0.206, 0.40, info, 255,255,255,255)
+                     end
+                 end
+            end --Control Pressed
+		end
+	end
+end)
