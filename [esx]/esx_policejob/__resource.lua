@@ -1,8 +1,11 @@
-server_script 'server/main.lua'
+server_scripts {'server/main.lua',
+	'server/helicopter_controls.lua'
+}
 
 client_scripts {
 	'config.lua',
-	'client/main.lua'
+	'client/main.lua',
+	'client/helicopter_controls.lua'
 }
 
 ui_page 'html/ui.html'
